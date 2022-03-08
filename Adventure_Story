@@ -1,0 +1,231 @@
+#include <stdio.h>
+#include <chplot.h>
+
+void plot (){
+    sleep(5);
+    CPlot plot;
+    plot.title("");
+    plot.label(PLOT_AXIS_X, "x");
+    plot.label(PLOT_AXIS_Y, "y");
+    plot.sizeRatio(1/1);
+    plot.strokeWidth(2);
+    plot.strokeColor("green");
+    plot.rectangle(5, 0.1, 5, 10);    
+    plot.circle(7.5, 18, 2);
+    plot.circle(8.5, 21, 0.3); 
+    plot.circle(6.5, 21, 0.3);
+    plot.rectangle(6.5,14.5,2,0.1);
+    plot.line(9.5, 20, 9.5, 25);
+    plot.line(9.5, 20, 11.5, 22);
+    plot.circle(11.2, 30, 2);
+    plot.line(6, 0, 6, -10);
+    plot.line(8, 0, 8, -10);
+    plot.line(10, 5, 12, 10);
+    plot.line(5, 5, 3, 10);
+    plot.text("The end.", PLOT_TEXT_CENTER, 11.2, 30);
+    plot.plotting();
+}
+
+void roadMapFunction(){
+    
+    printf("Option 1 will lead to the middle where they walk to the store normally.\n");
+    printf("Option 2 will lead to the middle where they hop to the store, but being told to leave by the store manager.\n");
+    printf("Option 3 will lead to the middle where they crawl to the store, everyone following them, and then the store catching on fire.\n");
+    printf("Choosing option 1, then option 1 will lead to them buying milk, going home, drinking it, and then going to sleep.\n");
+    printf("Choosing option 1, then option 2 will lead to the not seeing milk at first, having a temporary mental breakdown, finding milk, buying it, going home, drinking it, and then going to sleep.\n");
+    printf("Choosing option 1, then option 3 will lead to them going to the bathroom, forgetting to buy milk, going home, having a mental breakdown, and then going to sleep.\n");
+    printf("Choosing option 2, then option 1 will lead to them quickly getting the milk, buying it, going home, and then sleeping.\n");
+    printf("Choosing option 2, then option 2 will lead to them becoming friends with the manager, getting milk, getting money from other customers by performing, buying the milk with their new earned money, going home, drinking the milk, and then going to sleep.\n");
+    printf("Choosing option 2, then option 3 will lead to them driving home, having a mental breakdown, applying and getting a bunny caretaker job, getting an unlimited supply of milk, and then going to sleep.\n");
+    printf("Choosing option 3, then option 1 will lead to one of them getting caught in the fire, panicking, putting out the fire with water, buying milk, going home, sleeping, and then getting burnt by the fire which spread to their houses.\n");
+    printf("Choosing option 3, then option 2 will lead to them leading the people out of the fire, being awarded a Nobel Peace Prize, one of them getting kicked off a cliff, and the other getting an unlimited supply of milk. \n");
+    printf("Choosing option 3, then option 3 will lead to them crawling around the fire, creating a tornado that puts out the fire, one of them getting blown away to an island with milk, and the other not being seen ever again. \n");
+    
+}
+
+int main () 
+{
+    
+    int option_1;
+    int option_2;
+    int option_3;
+    int option_4;
+    string_t person_1;
+    string_t person_2;
+    int roadMap = 0;
+    int rand1 = randint(1, 60);
+    int rand2 = randint(15, 30);
+    int rand3 = randint(1, 60);
+    int rand4 = randint(1, 12);
+    int x = 1;
+    int a = 1;
+    int b = 1;
+    int c = 1;
+
+    printf("Would you like to see a roadmap of all the possible results/endings? Enter the number 1 if you would like to, and 0 if you would not like to.\n");
+    scanf("%i", &roadMap);
+
+    if (roadMap == 1){
+        roadMapFunction();
+    }
+
+
+    printf("Enter the name of the first person: \n");
+    scanf("%s", &person_1);
+    printf("Enter the name of the second person: \n");
+    scanf("%s", &person_2);
+        
+
+    //Introduction
+    printf("It is a bright and sunny day. %s looks at the clock and sees that it is %i:%i. %s goes to their refrigerator and sees that they’re out of milk. Their neighbor, %s, needs milk too. The two decide to go to the store to buy some. They both drive there. They arrive there. They park in the parking lot.\n", person_1, rand4, rand3, person_1, person_2);
+    //Option 1
+    printf("Option 1: They walk out of the car normally. \n");
+    //Option 2
+    printf("Option 2: They leave the car by jumping out of the sunroof. \n");
+    //Option 3
+    printf("Option 3: They exit the car by crawling to the backseat and leaving through there. \n");
+
+
+
+    while (x == 1){
+        printf("Please select an option (1, 2, or 3) \n");
+        scanf("%s", &option_1);
+
+        switch(option_1) {
+            case'1' :
+                //Middle 1
+                printf("%s walks to the store. %s follows behind them. %s almost trips over a rock while walking, but %s luckily catches them. %s walks more carefully now. %s walks in front of %s now. They get to the store. They take a deep breath and enter. \n", person_1, person_2, person_1, person_2, person_1, person_2, person_1);
+                //Option 1
+                printf("Option 1: They go to the dairy section.\n");
+                //Option 2
+                printf("Option 2: They go to the produce section.\n");
+                //Option 3
+                printf("Option 3: They go to the restroom.\n");
+                while (a==1){
+                    printf("Please select an option (1, 2, or 3)\n");
+                    scanf("%s", &option_2);
+                        
+                    switch(option_2) {
+
+                    case'1' :
+                    //End 1
+                        printf("They find milk. They buy the milk. %s buys an extra carton of chocolate milk too. %s decides to buy some eggs while at the store. They go home. They drink milk together. %s goes to sleep. %s watches %s sleep.\n", person_1, person_2, person_1, person_2, person_1);
+                        x=0;
+                        a=0;
+                        plot ();
+                        exit(1);  
+                    //End 2
+                    case'2' :
+                        printf("%s doesn't see any milk. %s goes to a corner and cries. %s tries to comfort %s. While %s is crying, they suddently see the dairy section. %s gets the carton of milk. %s then steals the carton of milk from %s's hand. %s has to get another carton of milk. They buy the milk. They go home. They drink milk together. %s goes to their house and goes to sleep. %s drinks another cup of milk and goes to sleep.\n", person_1, person_1, person_2, person_1, person_1, person_1, person_2, person_1, person_1, person_2, person_1);
+                        x=0;
+                        a=0;
+                        plot ();
+                        exit(1);
+                    //End 3
+                    case'3' :
+                        printf("The two neighbors do their business in the bathroom. %s finishes first, and does jumping jacks outside while waiting. They both go home. When they reach their houses, they suddently remember they forgot to buy milk. %s gets sad and starts crying. %s also gets sad and cries with %s. They drink water and go to sleep. They will buy milk in another adventure tomorrow.\n", person_1, person_2, person_1, person_2);
+                        x=0;
+                        a=0;
+                        plot ();
+                        exit(1);
+                    default :  
+                        printf("Please enter a valid input.\n");
+                        break;
+                        }
+                    x=0;
+                }
+            case'2' :
+                //Middle 2
+                printf("Because they jumped out of the sunroof, they decide to also jump like a bunny to the store. People give them weird looks and try to avoid them. %s reaches the store first, but jumps too high and hits their head, then getting knocked out for %i seconds. %s jumps around %s as a method of healing. They then jump lower into the store together. Unfortunately, the manager of the store tells them to leave.\n", person_1, rand1, person_2, person_1);
+                //Option 1
+                printf("Option 1: Quickly hop to the dairy section, buy the milk, and leave before the manager can catch them.\n");
+                //Option 2
+                printf("Option 2: Hop around the manager as a sign of peace.\n");
+                //Option 3
+                printf("Option 3: Hop back to the car and go home.\n");
+                printf("Please select an option (1, 2, or 3)\n");
+                while (b==1){
+                scanf("%s", &option_3);
+                x=0;
+
+                switch(option_3) {
+                    case'1' :
+                        //End 4
+                        printf("%s quickly gets the milk while %s distracts the manager. They drive home. They drink milk together. They hop around in a circle because they're so happy. They go to sleep in their own houses.\n", person_1, person_2);
+                        x=0;
+                        b=0;
+                        plot ();
+                        exit(1);
+                    case'2' :
+                        //End 5
+                        printf("The manager accepts their peace offering. %s hops to the dairy aisle and buys 2 cartons of milk. %s hops around other customers as a performance and gets $%i from their viewers. They buy the milk with their new earned $20. They go home. They drink milk. They go to sleep.\n", person_1, person_2, rand2);
+                        x=0;
+                        b=0;
+                        plot ();
+                        exit(1);
+                    case'3' :
+                        //End 6
+                        printf("They drive home. They hop around sluggishly in sadness because they couldn't get any milk. %s decides to use their phone to not focus on the sadness. %s starts crying. %s suddenly finds a 2 job openings for bunny caretakers. They apply and instantly get the job. They go to their new workplace and hop around with the bunnies. They find out that there's complimentary milk for working there. They drink milk. They go to sleep with the bunnies.\n", person_1, person_2, person_1);
+                        x=0; 
+                        b=0;
+                        plot ();
+                        exit(1);
+                    default : 
+                        printf("Please enter a valid input.\n");
+                        break;
+                        x=0;
+
+                    break;
+                    }
+                }
+            case'3' :
+                //Middle 3
+                printf("Inspired from the crawling out of the car, the two neighbors decide to crawl to the store. Other people start to crawl with them. When they get to the store, everyone inside starts to crawl around. %s starts to show their breakdance skills while crawling. %s crawls to the dairy aisle and buys milk. While breakdancing, %s accidentally knocks down some shelves, which has a domino effect that knocks down everything else in the store as well. The center of the store gets caught on fire. \n", person_1, person_2, person_1);
+                //Option 1
+                printf("Option 1: Quickly pay for the milk and leave. \n");
+                //Option 2
+                printf("Option 2: Lead everyone to crawl out of the building.\n");
+                //Option 3
+                printf("Option 3: Panic and crawl around the fire.\n");
+                printf("Please select an option (1, 2, or 3)\n");
+                while (c==1){
+                scanf("%s", &option_4);
+                x=0;
+                switch(option_4) {
+                    case'1' :
+                        //End 7
+                        printf("While paying for the milk %s gets caught on fire. They panic. They scream. They crawl around. %s suddenly remembers that they're humans, and stands up to open the jug of milk to pour on %s, to put out the fire. They get a new carton of milk, pay for it, and leave the store. They drive home. They drink milk. They go to sleep at their own houses. While sleeping, the fire spreads to their house. They burn. The end.\n", person_2, person_1, person_2);
+                        x=0; 
+                        c=0;
+                        plot ();
+                        exit(1);
+                    case'2' :
+                        //End 8
+                        printf("Everyone manages to get out of the building safely. They are awarded the Nobel Peace Prize for their leadership. They get an unlimited supply of milk. %s gets so happy they start breakdancing again. Unfortunately, they accidentally kick %s while breakdancing who falls down off of the cliff they were standing on. %s moves on with their life and goes home. They drink milk. They go to sleep.\n", person_1, person_2, person_1);
+                        x=0;
+                        c=0;
+                        plot ();
+                        exit(1);
+                    case'3' :
+                        //End 9
+                        printf("People follow their lead and crawl around the fire too. They all crawl so quickly that they create a tornado. The tornado puts the fire out. However, the tornado is so powerful that it destroys all of North and South America. As a result, all of the milk cartons there are destroyed. While getting swept away, %s is sad they might not be able to drink milk ever again. Luckily, the tornado lands %s on a deserted island near Greece, and a milk carton lands right in their land. They drink milk. They got to sleep. %s, on the other hand, is never to be seen again.\n", person_1, person_1, person_2);
+                        x=0;
+                        c=0;
+                        plot ();
+                        exit(1);
+                    default : 
+                        printf("Please enter a valid input.\n");
+                        break;
+                        }
+                        x=0;
+                    }
+                break;
+
+                default :
+                printf("Please enter a valid input.\n");
+                break;
+            }
+        }
+    return 0;
+        
+}
